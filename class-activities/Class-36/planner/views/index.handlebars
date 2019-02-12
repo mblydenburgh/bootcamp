@@ -1,0 +1,25 @@
+<h1>Day Planner</h1>
+
+<ul>
+    {{#each plans}}
+    <li>{{plan}}<button data-listid='{{this.id}}' class="delete-btn">Delete Plan</button></li> 
+    {{/each}}
+</ul>
+
+<h2>Create a Plan</h2>
+<form action="/" method="POST">
+    <textarea name="plan" id="plan-input" cols="30" rows="10"></textarea>
+    <button type="submit">Submit Plan</button>
+</form>
+
+<h2>Update a plan</h2>
+
+
+<script>
+    const deleteButton = document.querySelector('.delete-btn');
+    $('.delete-btn').on('click',function(event){
+        let id = event.target.dataset.listid;
+        console.log(`clicked id:${id}`);
+        $.post(`/:${id}`,(response)=>console.log(response));
+    });
+</script>

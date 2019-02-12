@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Open dat console</h1>
+
+    <script>
+  function checkPrime(num){
+        if(num === 1){
+            return false;
+        } else if(function(){
+            for(let i = 2; i < 10; i++){
+                if(num % i !== 0){
+                    continue;
+                } else{
+                    console.log(`false`);
+                    return false;
+                }
+            }
+            console.log(`true`)
+            return true;
+        });
+    }
+    
+    for(let i = 1; i < 11; i++){
+        console.log(checkPrime(i));
+    }
+    
+    </script>
+</body>
+</html>

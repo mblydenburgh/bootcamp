@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Favorite Movies</title>
+  <style type="text/css">
+    button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Movie Search</h1>
+
+    <!-- Movies will get dumped here -->
+    <div id="movies-view"></div>
+
+    <form id="movie-form">
+      <label for="movie-input">Add a Movie, Yo!</label>
+      <input type="text" id="movie-input"><br>
+
+      <!-- Button triggers new movie to be added -->
+      <input id="add-movie" type="submit" value="Add a Movie, Yo!">
+    </form>
+    <div id="movie-info"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      // Initial array of movies
+      var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+      let moviesView = $(`#movies-view`);
+      let movieDataView = $(`#movie-info`);
+      let jsonString;
+
+
+
+      // Function for displaying movie data
+      function renderButtons() {
+
+        // YOUR CODE GOES HERE
+        $(`#movies-view`).empty();
+
+        for (let i = 0; i < movies.length; i++) {
+          let button = $(`<button>`);
+          button.text(movies[i]);
+          button.attr(`value`, movies[i]);
+          moviesView.append(button);
+        }
+        $(`button`).click(function () {
+          console.log(`click event in renderButtons()`);
+        })
+      }
+
+      // This function handles events where one button is clicked
+      $("#add-movie").on("click", function (event) {
+        let movie = $("#movie-input").val();
+        let queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+        event.preventDefault();
+        console.log(`input value: ${movie}`);
+        //console.log(`evnet: ${event.target}`);
+        // YOUR CODE GOES HERE
+        getData(movie);
+      }); //click event for add movie
+
+      function getData(movie) {
+        $.ajax({
+          url: "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy",
+          method: "GET"
+        }).done(function (response) {
+          jsonString = JSON.stringify(response);
+          if (movies.indexOf(response.Title) < 0) {
+            console.log(`movie added`);
+            movies.push(response.Title);
+            renderButtons();
+
+          } else {
+            console.log(`movie already added`);
+          }
+
+          console.log(`movies: ${movies}`);
+        })
+      }
+
+
+      // Calling the renderButtons function to display the initial list of movies
+      renderButtons();
+    </script>
+  </div>
+</body>
+
+</html>

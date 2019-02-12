@@ -1,0 +1,30 @@
+a{
+    background-color: black;
+}
+a:hover{
+    color: purple;
+    font-style: italic;
+    font-size: 1.5em;
+    background-color: blue;
+    padding: 5px 35px;
+}
+
+a:active{
+    color:yellow;
+}
+
+.bold{
+    font-weight: bold;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1.5em;
+}
+
+.bigger{
+    font-size: 24px;
+    font-family: 'Lora', serif;
+}
+
+.high{
+    line-height: 50px;
+    font-family: 'Kosugi Maru', sans-serif;
+}

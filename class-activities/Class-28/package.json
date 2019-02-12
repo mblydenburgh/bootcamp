@@ -1,0 +1,16 @@
+{
+  "name": "class-28",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axois": "^1.0.0",
+    "inquirer": "^6.2.0",
+    "moment": "^2.22.2"
+  }
+}

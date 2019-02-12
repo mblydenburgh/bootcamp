@@ -1,0 +1,12 @@
+CREATE DATABASE greatBay_db;
+
+USE greatBay_db;
+
+CREATE TABLE auctions(
+	id INTEGER(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    item_type VARCHAR(30) NOT NULL,
+    item_name VARCHAR(30) NOT NULL,
+    bid INTEGER(10) NOT NULL
+);
+
+

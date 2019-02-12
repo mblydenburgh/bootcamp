@@ -1,0 +1,12 @@
+body{
+    background: linear-gradient(45deg,rgb(252, 157, 157),rgb(201, 201, 201)) no-repeat;
+}
+
+.row{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.broken{
+    padding-right: 260px;
+}

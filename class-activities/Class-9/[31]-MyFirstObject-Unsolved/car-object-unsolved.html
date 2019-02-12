@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>My First Object</title>
+  </head>
+  <body>
+
+    <h1>Car Adventures</h1>
+    <h3>Type "h" to honk, "d" tp drive to work, "w" to drive around the world, or "t" to get a tuneup.</h3>
+    <h3>See console for car stats</h3>
+
+
+    <script>
+
+      var car = {
+        make: "Honda",
+        model: "Fit",
+        color: "Blue Raspberry",
+        mileage: 3000,
+        isWorking: true,
+
+        driveToWork: function() {
+
+          alert("Old Mileage: " + this.mileage);
+
+          this.mileage = this.mileage + 8;
+
+          alert("New mileage: " + this.mileage);
+        },
+
+        driveAroundWorld: function() {
+
+          alert("Old Mileage: " + this.mileage);
+
+          this.mileage = this.mileage + 24000;
+
+          alert("New Mileage: " + this.mileage);
+          alert("Car needs a tuneup!");
+
+          this.isWorking = false;
+        },
+
+        getTuneUp: function() {
+          alert("Car is ready to go!");
+          this.isWorking = true;
+        },
+
+        honk: function() {
+          alert("Honk! Honk!");
+        }
+      };
+
+      function reWriteStats(){
+
+        console.log(car.make);
+        console.log(car.model);
+        console.log(car.color);
+        console.log(car.mileage);
+        console.log(car.isWorking);
+        console.log("***************")
+      }
+
+
+      // How would we log...
+
+      // The car's make?
+      //console.log(car.make);
+
+      // The car's model?
+      //console.log(car.model);
+
+      // The car's mileage?
+      //console.log(car.mileage);
+
+      // How would we run the car's driveToWork method?
+      //car.driveToWork();
+
+      // How would we run the car's driveAroundWorld method?
+      // car.driveAroundWorld();
+      // How would we run the getTuneUp method?
+      // car.getTuneUp();
+
+
+    // var person = {
+    //   name: "Emilioooooo",
+    //   occupation: "Suave Bro",
+    //   wasLike: function(){
+    //     alert("And I was like...."+ this.name+"!");
+    //   }
+    // }
+
+    // person.wasLike();
+
+
+
+    document.onkeyup = function(event){
+      let userKey = event.key;
+      // console.log(userKey);
+      if(userKey === "h"){
+        car.honk();
+        reWriteStats();
+      }else if(userKey === "d"){
+        car.driveToWork();
+        reWriteStats();
+      } else if(userKey === "t"){
+        car.getTuneUp();
+        reWriteStats();
+      } else if(userKey === "w"){
+        car.driveAroundWorld();
+        reWriteStats();
+
+      } else{
+        reWriteStats();
+      }
+
+
+    
+    } //end keyup function
+
+
+    </script>
+    
+  </body>
+</html>

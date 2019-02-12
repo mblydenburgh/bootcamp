@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Enter a movie title to search for:</p>
+    <input type="text" id="titleInput">
+    <br>
+    <button id="search">Generate URL</button>
+    <p id="urlDisplay"></p>
+
+    <script>
+        let apiKey = `trilogy`;
+        let movie = document.getElementById("titleInput").value;
+
+        function searchTitle(api,movie){
+            let url = `http://www.omdbapi.com/?apikey=${apiKey}&s=${movie}`;
+            console.log(url);
+            return url;
+        }
+
+        let searchButton = document.getElementById("search");
+        searchButton.addEventListener("click",searchTitle);
+
+        //console.log(searchTitle(apiKey,movie));
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Click Button with Firebase!</title>
+
+  <!-- load firebase script -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+
+</head>
+
+<body>
+
+  <!-- display database value -->
+  <h1>Ouch! You've clicked me
+    <span id="click-value"></span> times!</h1>
+
+  <!-- button so link click event for -->
+  <button id="click-button">Click Me!!!!</button>
+
+  <!-- load jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- ================================================================================== -->
+  <script>
+
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBsdtVU1GP6ZsBZ95Y4m25dSe3Kt6jNOho",
+      authDomain: "class-20-example.firebaseapp.com",
+      databaseURL: "https://class-20-example.firebaseio.com",
+      projectId: "class-20-example",
+      storageBucket: "class-20-example.appspot.com",
+      messagingSenderId: "829183535824"
+    };
+    firebase.initializeApp(config);
+
+    // VARIABLES
+    // --------------------------------------------------------------------------------
+
+    var database = firebase.database();
+    var clickCounter = 0;
+    var testString = "helloworld";
+
+    // FUNCTIONS + EVENTS
+    // --------------------------------------------------------------------------------
+
+    $("#click-button").on("click", function () {
+      clickCounter++;
+      database.ref().set({
+        clickCount: clickCounter,
+        test: testString
+      });
+    });
+
+    // MAIN PROCESS + INITIAL CODE
+    // --------------------------------------------------------------------------------
+
+    database.ref().on("value", function (snapshot) {
+      console.log(snapshot.val());
+      $("#click-value").text(snapshot.val().clickCount);
+      clickCounter = snapshot.val().clickCount;
+    }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
+
+  </script>
+
+</body>
+
+</html>

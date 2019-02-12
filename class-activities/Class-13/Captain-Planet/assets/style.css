@@ -1,0 +1,15 @@
+img{
+    width: 250px;
+}
+
+button{
+    margin-top: 1em;
+}
+
+/* .hero-area{
+    position:relative;
+};
+*/
+#hero{
+    position: absolute;
+}

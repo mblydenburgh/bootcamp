@@ -1,0 +1,14 @@
+<h1>Wishlist</h1>
+
+<ul>
+{{#each wishes}}
+    <li>{{wish}}</li>
+{{/each}}
+</ul>
+
+<form action="/" method="POST">
+    <label for="">Enter a new wish to never be granted:</label>
+    <input name="wish" type="text">
+    <br>
+    <button type="submit">Submit</button>
+</form>
